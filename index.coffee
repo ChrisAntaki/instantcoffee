@@ -8,7 +8,13 @@ express = require('express')
 app = express()
 port = process.env.PORT || 8000
 app.listen(port)
+
+# Serve static files.
 app.use(express.static(__dirname + '/public'))
+
+# Parse POST parameters.
+app.use(require('body-parser')())
+
 process.stdout.write "Server live on port #{port}...\n"
 
 # # # # #
